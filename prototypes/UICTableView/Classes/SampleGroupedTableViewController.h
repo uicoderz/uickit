@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
+#import "UICTableViewController.h"
 
-@interface SampleGroupedTableViewController : UITableViewController {
+@interface SampleGroupedTableViewController : UICTableViewController {
 
 }
 

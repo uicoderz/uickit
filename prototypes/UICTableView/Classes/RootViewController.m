@@ -19,7 +19,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -38,13 +38,13 @@
 		case 1:
 			cell.text = @"UICTableViewCell (Plain)";
 			break;
-/*		case 1:
+		case 2:
 			cell.text = @"UITableViewCell (Grouped)";
 			break;
 		case 3:
 			cell.text = @"UICTableViewCell (Grouped)";
 			break;
-*/	}
+	}
 	
 	//cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -63,13 +63,13 @@
 		case 1:
 			vc = [[[SamplePlainTableViewController alloc] initWithStyle:UITableViewStylePlain useUICCell:YES] autorelease];
 			break;
-/*		case 1:
+		case 2:
 			vc = [[[SampleGroupedTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
 			break;
 		case 3:
 			vc = [[[SampleGroupedTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
 			break;
-*/	}
+	}
 		
 	if (vc) {
 		[self.navigationController pushViewController:vc animated:YES];
