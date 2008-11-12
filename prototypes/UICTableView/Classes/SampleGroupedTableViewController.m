@@ -5,12 +5,12 @@
 - (id)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:style]) {
 		NSArray *g1 = [NSArray arrayWithObjects:
-							[UICPrototypeTableCell textCell:@"text1"],
-							[UICPrototypeTableCell textCell:@"text2"],
-							[UICPrototypeTableCell textCell:@"text3"],
-							[UICPrototypeTableCell textCell:@"text4"],
-							[UICPrototypeTableCell textCell:@"text5"],
-							[UICPrototypeTableCell textCell:@"text6"],
+							[UICPrototypeTableCell cellForText:@"text1"],
+							[UICPrototypeTableCell cellForText:@"text2"],
+							[UICPrototypeTableCell cellForText:@"text3"],
+							[UICPrototypeTableCell cellForText:@"text4"],
+							[UICPrototypeTableCell cellForText:@"text5"],
+							[UICPrototypeTableCell cellForText:@"text6"],
 							nil];
 		
 		groups = [[NSArray arrayWithObjects:

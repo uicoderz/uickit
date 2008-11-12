@@ -9,10 +9,10 @@
 }
 
 + (NSString*)cellIdentifierForPrototype:(UICPrototypeTableCell*)prototype {
-	static NSString *s[] = {@"Text", @"TextWithButton", @"TextWithTextInput"};
+	static NSString *s[] = {@"Text", @"TextWithSwitch", @"TextWithTextInput"};
 	switch (prototype.celltype) {
 		case UICPrototypeTableCellType_Text: return s[0];
-		case UICPrototypeTableCellType_TextWithButton: return s[1];
+		case UICPrototypeTableCellType_TextWithSwitch: return s[1];
 		case UICPrototypeTableCellType_TextWithTextInput: return s[2];
 	}
 	return nil;

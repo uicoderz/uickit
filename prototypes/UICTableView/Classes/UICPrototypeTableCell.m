@@ -2,7 +2,7 @@
 
 @interface UICPrototypeTableCell(Private)
 - (id)initWithText:(NSString*)aText;
-- (id)initWithText:(NSString*)aText withButton:(BOOL)val;
+- (id)initWithText:(NSString*)aText withSwitch:(BOOL)val;
 - (id)initWithText:(NSString*)aText withTextInput:(NSString*)prompt;
 
 @end
@@ -10,7 +10,7 @@
 
 @implementation UICPrototypeTableCell
 
-@synthesize text, textInputPrompt, buttonVal, celltype;
+@synthesize text, textInputPrompt, switchVal, celltype;
 
 - (id)initWithText:(NSString*)aText {
 	if (self = [super init]) {
@@ -20,10 +20,10 @@
 	return self;
 }
 
-- (id)initWithText:(NSString*)aText withButton:(BOOL)val {
+- (id)initWithText:(NSString*)aText withSwitch:(BOOL)val {
 	if (self = [self initWithText:aText]) {
-		buttonVal = val;
-		celltype = UICPrototypeTableCellType_TextWithButton;
+		switchVal = val;
+		celltype = UICPrototypeTableCellType_TextWithSwitch;
 	}
 	return self;
 }
@@ -36,15 +36,15 @@
 	return self;
 }
 
-+ (id)textCell:(NSString*)aText {
++ (id)cellForText:(NSString*)aText {
 	return [[[UICPrototypeTableCell alloc] initWithText:aText] autorelease];
 }
 
-+ (id)buttonCell:(NSString*)aText withButton:(BOOL)val {
-	return [[[UICPrototypeTableCell alloc] initWithText:aText withButton:val] autorelease];
++ (id)cellForSwitch:(NSString*)aText withSwitch:(BOOL)val {
+	return [[[UICPrototypeTableCell alloc] initWithText:aText withSwitch:val] autorelease];
 }
 
-+ (id)textInputCell:(NSString*)aText withTextInput:(NSString*)prompt {
++ (id)cellForTextInput:(NSString*)aText withPrompt:(NSString*)prompt {
 	return [[[UICPrototypeTableCell alloc] initWithText:aText withTextInput:prompt] autorelease];
 }
 

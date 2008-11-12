@@ -2,24 +2,24 @@
 
 typedef enum UICPrototypeTableCellType {
 	UICPrototypeTableCellType_Text,
-	UICPrototypeTableCellType_TextWithButton,
+	UICPrototypeTableCellType_TextWithSwitch,
 	UICPrototypeTableCellType_TextWithTextInput,
 	
 } UICPrototypeTableCellType;
 
 @interface UICPrototypeTableCell : NSObject {
 	NSString *text;
-	BOOL buttonVal;
+	BOOL switchVal;
 	NSString *textInputPrompt;	
 	UICPrototypeTableCellType celltype;
 }
 
-+ (id)textCell:(NSString*)text;
-+ (id)buttonCell:(NSString*)text withButton:(BOOL)val;
-+ (id)textInputCell:(NSString*)text withTextInput:(NSString*)prompt;
++ (id)cellForText:(NSString*)text;
++ (id)cellForSwitch:(NSString*)text withSwitch:(BOOL)val;
++ (id)cellForTextInput:(NSString*)text withPrompt:(NSString*)prompt;
 
 @property (readonly) NSString *text;
-@property (readonly) BOOL buttonVal;
+@property (readonly) BOOL switchVal;
 @property (readonly) NSString *textInputPrompt;	
 @property (readonly) UICPrototypeTableCellType celltype;
 
