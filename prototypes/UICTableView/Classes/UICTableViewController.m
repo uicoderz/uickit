@@ -1,4 +1,5 @@
 #import "UICTableViewController.h"
+#import "UICTableViewCellSwitch.h"
 
 @implementation UICTableViewController
 
@@ -45,9 +46,26 @@
 	NSString *cid = [UICTableViewController cellIdentifierForPrototype:c];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cid];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:cid] autorelease];
-    }
+			
+		switch ([c celltype]) {
+			case UICPrototypeTableCellType_TextWithSwitch:
+				cell = [[[UICTableViewCellSwitch alloc] initWithFrame:CGRectZero reuseIdentifier:cid] autorelease];
+				break;
+//			case UICPrototypeTableCellType_TextWithTextInput:
+//				break;
+			default:
+				cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:cid] autorelease];
+				break;
+		}
+	}
 
+	id ccc = cell;
+	switch ([c celltype]) {
+		case UICPrototypeTableCellType_TextWithSwitch:
+			[ccc updateWithPrototype:c];
+			break;
+	}
+	
 	cell.text = c.text;
     return cell;
 }

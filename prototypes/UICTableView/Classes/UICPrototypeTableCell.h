@@ -19,7 +19,7 @@ typedef enum UICPrototypeTableCellType {
 + (id)cellForTextInput:(NSString*)text withPrompt:(NSString*)prompt;
 
 @property (readonly) NSString *text;
-@property (readonly) BOOL switchVal;
+@property (readwrite) BOOL switchVal;
 @property (readonly) NSString *textInputPrompt;	
 @property (readonly) UICPrototypeTableCellType celltype;
 

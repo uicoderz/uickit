@@ -6,18 +6,44 @@
 	if (self = [super initWithStyle:style]) {
 		NSArray *g1 = [NSArray arrayWithObjects:
 							[UICPrototypeTableCell cellForText:@"text1"],
-							[UICPrototypeTableCell cellForText:@"text2"],
-							[UICPrototypeTableCell cellForText:@"text3"],
+							[UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:NO],
+							[UICPrototypeTableCell cellForSwitch:@"text3" withSwitch:YES],
 							[UICPrototypeTableCell cellForText:@"text4"],
 							[UICPrototypeTableCell cellForText:@"text5"],
 							[UICPrototypeTableCell cellForText:@"text6"],
 							nil];
+		NSArray *g2 = [NSArray arrayWithObjects:
+					   [UICPrototypeTableCell cellForText:@"text1"],
+					   [UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:YES],
+					   [UICPrototypeTableCell cellForText:@"text3"],
+					   [UICPrototypeTableCell cellForSwitch:@"text4" withSwitch:YES],
+					   [UICPrototypeTableCell cellForText:@"text5"],
+					   [UICPrototypeTableCell cellForText:@"text6"],
+					   nil];
 		
+		NSArray *g3 = [NSArray arrayWithObjects:
+					   [UICPrototypeTableCell cellForText:@"text1"],
+					   [UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:YES],
+					   [UICPrototypeTableCell cellForSwitch:@"text3" withSwitch:YES],
+					   [UICPrototypeTableCell cellForText:@"text4"],
+					   [UICPrototypeTableCell cellForText:@"text5"],
+					   [UICPrototypeTableCell cellForText:@"text6"],
+					   nil];
+
+		NSArray *g4 = [NSArray arrayWithObjects:
+					   [UICPrototypeTableCell cellForText:@"text1"],
+					   [UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:YES],
+					   [UICPrototypeTableCell cellForSwitch:@"text3" withSwitch:YES],
+					   [UICPrototypeTableCell cellForText:@"text4"],
+					   [UICPrototypeTableCell cellForText:@"text5"],
+					   [UICPrototypeTableCell cellForText:@"text6"],
+					   nil];
+
 		groups = [[NSArray arrayWithObjects:
 				   [UICPrototypeTableGroup groupWithCells:g1 withTitle:@"group1"], 
-				   [UICPrototypeTableGroup groupWithCells:g1 withTitle:@"group2"], 
-				   [UICPrototypeTableGroup groupWithCells:g1 withTitle:@"group3"], 
-				   [UICPrototypeTableGroup groupWithCells:g1 withTitle:@"group4"], 
+				   [UICPrototypeTableGroup groupWithCells:g2 withTitle:@"group2"], 
+				   [UICPrototypeTableGroup groupWithCells:g3 withTitle:@"group3"], 
+				   [UICPrototypeTableGroup groupWithCells:g4 withTitle:@"group4"], 
 				   nil] retain];
 	}
 	
