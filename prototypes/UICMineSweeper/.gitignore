@@ -1,0 +1,4 @@
+UICMineSweeper.xcodeproj/*.mode1v3
+UICMineSweeper.xcodeproj/*.pbxuser
+build
+*.pch
