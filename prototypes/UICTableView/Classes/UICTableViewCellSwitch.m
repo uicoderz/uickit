@@ -1,11 +1,3 @@
-//
-//  UICTableViewCellSwitch.m
-//  UICTable
-//
-//  Created by Takuma Mori on 08/11/12.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
-//
-
 #import "UICTableViewCellSwitch.h"
 
 @interface UICTableViewCellSwitch(Private)
@@ -23,6 +15,7 @@
 			   action:@selector(switchPushed:)
 	 forControlEvents:UIControlEventValueChanged];
 		
+		self.selectionStyle = UITableViewCellSelectionStyleNone;
 		[self addSubview:sw];
     }
 	NSLog(@"UICTableViewCellSwitch created:%x", self);
@@ -30,14 +23,14 @@
 }
 
 - (void)switchPushed:(id)sender {
-	prototype.switchVal = sw.on;
-	NSLog(@"switch val changed:%d", prototype.switchVal);
+	prototype.value = sw.on;
+	NSLog(@"switch val changed:%d", prototype.value);
 }
 
-- (void)updateWithPrototype:(UICPrototypeTableCell*)aPrototype {
+- (void)updateWithPrototype:(UICPrototypeTableCellSwitch*)aPrototype {
 	[prototype release];
 	prototype = [aPrototype retain];
-	sw.on = prototype.switchVal;
+	sw.on = prototype.value;
 }
 
 - (void)dealloc {

@@ -1,11 +1,15 @@
 #import "SampleGroupedTableViewController.h"
+#import "UICPrototypeTableCellTextInput.h"
 
 @implementation SampleGroupedTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:style]) {
+		UICPrototypeTableCellTextInput *c = [UICPrototypeTableCell cellForTextInput:@"Passowrd" withPlaceholder:@"password"];
+		c.secure = YES;
 		NSArray *g1 = [NSArray arrayWithObjects:
-							[UICPrototypeTableCell cellForText:@"text1"],
+							[UICPrototypeTableCell cellForTextInput:@"Username" withPlaceholder:@"username"],
+							c,
 							[UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:NO],
 							[UICPrototypeTableCell cellForSwitch:@"text3" withSwitch:YES],
 							[UICPrototypeTableCell cellForText:@"text4"],

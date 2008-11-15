@@ -17,6 +17,7 @@
 		8D1DE9060EC87F20004D3D09 /* UICTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE9050EC87F20004D3D09 /* UICTableViewController.m */; };
 		8D1DE9BD0EC8AA03004D3D09 /* UICPrototypeTableGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE9BC0EC8AA03004D3D09 /* UICPrototypeTableGroup.m */; };
 		8D1DE9C00EC8AA11004D3D09 /* UICPrototypeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DE9BF0EC8AA11004D3D09 /* UICPrototypeTableCell.m */; };
+		8D66FF6D0ECDCA630018BD15 /* UICTableViewCellTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D66FF6C0ECDCA630018BD15 /* UICTableViewCellTextInput.m */; };
 		8D92F70E0ECADB32004560B5 /* UICTableViewCellSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D92F70D0ECADB32004560B5 /* UICTableViewCellSwitch.m */; };
 		8DB8BF8F0EBC597A008A2A9A /* SamplePlainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8BF8E0EBC597A008A2A9A /* SamplePlainTableViewController.m */; };
 		8DB8BF920EBC598C008A2A9A /* SampleGroupedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8BF910EBC598C008A2A9A /* SampleGroupedTableViewController.m */; };
@@ -24,6 +25,8 @@
 		8DB8C11E0EBC6A01008A2A9A /* SampleLabeledTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8C11D0EBC6A01008A2A9A /* SampleLabeledTableCell.m */; };
 		8DB8C1D40EBC7ECF008A2A9A /* testdata.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8DB8C1D30EBC7ECF008A2A9A /* testdata.txt */; };
 		8DB8C25E0EBC8A2E008A2A9A /* SampleUICTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8C25D0EBC8A2E008A2A9A /* SampleUICTableCell.m */; };
+		8DDBFE140ECF40E3007602E6 /* UICPrototypeTableCellTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBFE130ECF40E3007602E6 /* UICPrototypeTableCellTextInput.m */; };
+		8DDBFE4B0ECF460C007602E6 /* UICPrototypeTableCellSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDBFE4A0ECF460C007602E6 /* UICPrototypeTableCellSwitch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,8 @@
 		8D1DE9BC0EC8AA03004D3D09 /* UICPrototypeTableGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICPrototypeTableGroup.m; sourceTree = "<group>"; };
 		8D1DE9BE0EC8AA11004D3D09 /* UICPrototypeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICPrototypeTableCell.h; sourceTree = "<group>"; };
 		8D1DE9BF0EC8AA11004D3D09 /* UICPrototypeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICPrototypeTableCell.m; sourceTree = "<group>"; };
+		8D66FF6B0ECDCA630018BD15 /* UICTableViewCellTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICTableViewCellTextInput.h; sourceTree = "<group>"; };
+		8D66FF6C0ECDCA630018BD15 /* UICTableViewCellTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICTableViewCellTextInput.m; sourceTree = "<group>"; };
 		8D92F70C0ECADB32004560B5 /* UICTableViewCellSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICTableViewCellSwitch.h; sourceTree = "<group>"; };
 		8D92F70D0ECADB32004560B5 /* UICTableViewCellSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICTableViewCellSwitch.m; sourceTree = "<group>"; };
 		8DB8BF8D0EBC597A008A2A9A /* SamplePlainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePlainTableViewController.h; sourceTree = "<group>"; };
@@ -58,6 +63,10 @@
 		8DB8C1D30EBC7ECF008A2A9A /* testdata.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testdata.txt; sourceTree = "<group>"; };
 		8DB8C25C0EBC8A2E008A2A9A /* SampleUICTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleUICTableCell.h; sourceTree = "<group>"; };
 		8DB8C25D0EBC8A2E008A2A9A /* SampleUICTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleUICTableCell.m; sourceTree = "<group>"; };
+		8DDBFE120ECF40E3007602E6 /* UICPrototypeTableCellTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICPrototypeTableCellTextInput.h; sourceTree = "<group>"; };
+		8DDBFE130ECF40E3007602E6 /* UICPrototypeTableCellTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICPrototypeTableCellTextInput.m; sourceTree = "<group>"; };
+		8DDBFE490ECF460C007602E6 /* UICPrototypeTableCellSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICPrototypeTableCellSwitch.h; sourceTree = "<group>"; };
+		8DDBFE4A0ECF460C007602E6 /* UICPrototypeTableCellSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICPrototypeTableCellSwitch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +88,6 @@
 			children = (
 				8DB24B030EC441A800D2C76E /* sample */,
 				8DB8C07B0EBC62F4008A2A9A /* lib */,
-				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 				28C286E00D94DF7D0034E888 /* RootViewController.m */,
 				1D3623240D0F684500981E51 /* UICTableAppDelegate.h */,
 				1D3623250D0F684500981E51 /* UICTableAppDelegate.m */,
@@ -143,6 +151,10 @@
 				8D1DE9BC0EC8AA03004D3D09 /* UICPrototypeTableGroup.m */,
 				8D1DE9BE0EC8AA11004D3D09 /* UICPrototypeTableCell.h */,
 				8D1DE9BF0EC8AA11004D3D09 /* UICPrototypeTableCell.m */,
+				8DDBFE490ECF460C007602E6 /* UICPrototypeTableCellSwitch.h */,
+				8DDBFE4A0ECF460C007602E6 /* UICPrototypeTableCellSwitch.m */,
+				8DDBFE120ECF40E3007602E6 /* UICPrototypeTableCellTextInput.h */,
+				8DDBFE130ECF40E3007602E6 /* UICPrototypeTableCellTextInput.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -172,6 +184,9 @@
 				8D1DE9050EC87F20004D3D09 /* UICTableViewController.m */,
 				8D92F70C0ECADB32004560B5 /* UICTableViewCellSwitch.h */,
 				8D92F70D0ECADB32004560B5 /* UICTableViewCellSwitch.m */,
+				8D66FF6B0ECDCA630018BD15 /* UICTableViewCellTextInput.h */,
+				8D66FF6C0ECDCA630018BD15 /* UICTableViewCellTextInput.m */,
+				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -249,6 +264,9 @@
 				8D1DE9BD0EC8AA03004D3D09 /* UICPrototypeTableGroup.m in Sources */,
 				8D1DE9C00EC8AA11004D3D09 /* UICPrototypeTableCell.m in Sources */,
 				8D92F70E0ECADB32004560B5 /* UICTableViewCellSwitch.m in Sources */,
+				8D66FF6D0ECDCA630018BD15 /* UICTableViewCellTextInput.m in Sources */,
+				8DDBFE140ECF40E3007602E6 /* UICPrototypeTableCellTextInput.m in Sources */,
+				8DDBFE4B0ECF460C007602E6 /* UICPrototypeTableCellSwitch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

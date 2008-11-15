@@ -1,26 +1,16 @@
 #import <UIKit/UIKit.h>
 
-typedef enum UICPrototypeTableCellType {
-	UICPrototypeTableCellType_Text,
-	UICPrototypeTableCellType_TextWithSwitch,
-	UICPrototypeTableCellType_TextWithTextInput,
-	
-} UICPrototypeTableCellType;
-
 @interface UICPrototypeTableCell : NSObject {
-	NSString *text;
-	BOOL switchVal;
-	NSString *textInputPrompt;	
-	UICPrototypeTableCellType celltype;
+	NSString *title;
 }
 
-+ (id)cellForText:(NSString*)text;
-+ (id)cellForSwitch:(NSString*)text withSwitch:(BOOL)val;
-+ (id)cellForTextInput:(NSString*)text withPrompt:(NSString*)prompt;
++ (id)cellForText:(NSString*)title;
++ (id)cellForSwitch:(NSString*)title withSwitch:(BOOL)val;
++ (id)cellForTextInput:(NSString*)title withPlaceholder:(NSString*)placeholder;
 
-@property (readonly) NSString *text;
-@property (readwrite) BOOL switchVal;
-@property (readonly) NSString *textInputPrompt;	
-@property (readonly) UICPrototypeTableCellType celltype;
+- (id)tableCellViewWithReuseId:(NSString*)reuseId;
+- (NSString*)cellIdentifier;
+
+@property (readonly) NSString *title;
 
 @end

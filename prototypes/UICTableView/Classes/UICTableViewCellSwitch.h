@@ -1,11 +1,11 @@
 #import <UIKit/UIKit.h>
-#import "UICPrototypeTableCell.h"
+#import "UICPrototypeTableCellSwitch.h"
 
 @interface UICTableViewCellSwitch : UITableViewCell {
-	UICPrototypeTableCell *prototype;
+	UICPrototypeTableCellSwitch *prototype;
 	UISwitch *sw;
 }
 
-- (void)updateWithPrototype:(UICPrototypeTableCell*)prototype;
+- (void)updateWithPrototype:(UICPrototypeTableCellSwitch*)prototype;
 
 @end
