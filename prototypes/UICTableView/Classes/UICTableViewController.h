@@ -6,4 +6,6 @@
 	NSArray *groups;
 }
 
+@property (readwrite, retain) NSArray *groups;
+
 @end

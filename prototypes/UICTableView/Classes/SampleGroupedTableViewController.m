@@ -1,48 +1,46 @@
 #import "SampleGroupedTableViewController.h"
 #import "UICPrototypeTableCellTextInput.h"
+#import "UICPrototypeTableCellSelect.h"
 
 @implementation SampleGroupedTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:style]) {
+
 		UICPrototypeTableCellTextInput *c = [UICPrototypeTableCell cellForTextInput:@"Passowrd" withPlaceholder:@"password"];
 		c.secure = YES;
 		NSArray *g1 = [NSArray arrayWithObjects:
 							[UICPrototypeTableCell cellForTextInput:@"Username" withPlaceholder:@"username"],
 							c,
-							[UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:NO],
-							[UICPrototypeTableCell cellForSwitch:@"text3" withSwitch:YES],
-							[UICPrototypeTableCell cellForText:@"text4"],
-							[UICPrototypeTableCell cellForText:@"text5"],
-							[UICPrototypeTableCell cellForText:@"text6"],
 							nil];
 		NSArray *g2 = [NSArray arrayWithObjects:
-					   [UICPrototypeTableCell cellForText:@"text1"],
-					   [UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:YES],
-					   [UICPrototypeTableCell cellForText:@"text3"],
-					   [UICPrototypeTableCell cellForSwitch:@"text4" withSwitch:YES],
-					   [UICPrototypeTableCell cellForText:@"text5"],
-					   [UICPrototypeTableCell cellForText:@"text6"],
+					   [UICPrototypeTableCell cellForSwitch:@"text1" withSwitch:YES],
+					   [UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:NO],
+					   [UICPrototypeTableCell cellForSwitch:@"text3" withSwitch:YES],
+					   [UICPrototypeTableCell cellForSwitch:@"text4" withSwitch:NO],
+					   [UICPrototypeTableCell cellForSwitch:@"text5" withSwitch:YES],
 					   nil];
 		
 		NSArray *g3 = [NSArray arrayWithObjects:
-					   [UICPrototypeTableCell cellForText:@"text1"],
-					   [UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:YES],
-					   [UICPrototypeTableCell cellForSwitch:@"text3" withSwitch:YES],
-					   [UICPrototypeTableCell cellForText:@"text4"],
-					   [UICPrototypeTableCell cellForText:@"text5"],
-					   [UICPrototypeTableCell cellForText:@"text6"],
+					   [UICPrototypeTableCell cellForSelect:@"testsel1" withSelectTitles:[NSArray arrayWithObjects:@"aaa", @"bbb", @"ccc", nil]],
+					   [UICPrototypeTableCell cellForSelect:@"testsel2" withSelectTitles:[NSArray arrayWithObjects:@"abc", @"123", @"456", @"789", nil]],
+					   [UICPrototypeTableCell cellForSelect:@"testsel3" withSelectTitles:[NSArray arrayWithObjects:@"a", nil]],
+					   [UICPrototypeTableCell cellForSelect:@"testsel4" withSelectTitles:[NSArray arrayWithObjects:@"a", @"b", @"c", @"d", @"e", @"f", @"g", nil]],
 					   nil];
 
 		NSArray *g4 = [NSArray arrayWithObjects:
+					   [UICPrototypeTableCell cellForText:@"text0"],
 					   [UICPrototypeTableCell cellForText:@"text1"],
-					   [UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:YES],
-					   [UICPrototypeTableCell cellForSwitch:@"text3" withSwitch:YES],
+					   [UICPrototypeTableCell cellForText:@"text2"],
+					   [UICPrototypeTableCell cellForText:@"text3"],
 					   [UICPrototypeTableCell cellForText:@"text4"],
 					   [UICPrototypeTableCell cellForText:@"text5"],
 					   [UICPrototypeTableCell cellForText:@"text6"],
+					   [UICPrototypeTableCell cellForText:@"text7"],
+					   [UICPrototypeTableCell cellForText:@"text8"],
+					   [UICPrototypeTableCell cellForText:@"text9"],
 					   nil];
-
+		
 		groups = [[NSArray arrayWithObjects:
 				   [UICPrototypeTableGroup groupWithCells:g1 withTitle:@"group1"], 
 				   [UICPrototypeTableGroup groupWithCells:g2 withTitle:@"group2"], 

@@ -1,6 +1,7 @@
 #import "UICPrototypeTableCell.h"
 #import "UICPrototypeTableCellSwitch.h"
 #import "UICPrototypeTableCellTextInput.h"
+#import "UICPrototypeTableCellSelect.h"
 #import "UICTableViewCell.h"
 
 @interface UICPrototypeTableCell(Private)
@@ -36,6 +37,21 @@
 											autorelease];
 	p.placeholder = placeholder;
 	return p;
+}
+
++ (id)cellForSelect:(NSString*)title withSelectTitles:(NSArray*)titles {
+	UICPrototypeTableCellSelect *p = [[[UICPrototypeTableCellSelect alloc] initWithText:title]
+									   autorelease];
+	p.titles = titles;
+	return p;
+}
+
++ (id)cellsForTitles:(NSArray*)titles {
+	NSMutableArray *a = [[NSMutableArray alloc] init];
+	for (NSString *title in titles) {
+		[a addObject:[UICPrototypeTableCell cellForText:title]];
+	}
+	return a;
 }
 
 - (id)tableCellViewWithReuseId:(NSString*)reuseId {

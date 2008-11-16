@@ -1,13 +1,23 @@
 #import "UICTableViewController.h"
 #import "UICTableViewCellSwitch.h"
 #import "UICTableViewCellTextInput.h"
+#import "UICPrototypeTableCellSelect.h"
+#import "UICPrototypeTableGroup.h"
+#import "UICTableViewControllerSelect.h"
 
 @implementation UICTableViewController
+
+@synthesize groups;
 
 - (id)initWithStyle:(UITableViewStyle)style {
     if (self = [super initWithStyle:style]) {
 	}
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	[self.tableView reloadData];
 }
 
 
@@ -47,6 +57,22 @@
 	[cell setText:[prototype title]];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	UICPrototypeTableGroup *g = (UICPrototypeTableGroup *)[groups objectAtIndex:[indexPath section]];
+	id prototype = (UICPrototypeTableCell*)[g.cells objectAtIndex:[indexPath row]];
+
+	if ([[prototype class] isEqual:[UICPrototypeTableCellSelect class]]) {
+		UICPrototypeTableCellSelect *p = prototype;
+		NSArray *g = [NSArray arrayWithObject:[UICPrototypeTableGroup groupWithCells:
+											   [UICPrototypeTableCell cellsForTitles:p.titles] withTitle:nil]];
+		UICTableViewControllerSelect *tc = [[[UICTableViewControllerSelect alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+		tc.groups = g;
+		tc.prototype = prototype;
+		[self.navigationController pushViewController:tc animated:YES];
+	}
+}
+
 
 - (void)dealloc {
 	[groups dealloc];
