@@ -14,4 +14,9 @@
 	return s;
 }
 
+- (void)dealloc {
+	[titles release];
+	[super dealloc];
+}
+
 @end

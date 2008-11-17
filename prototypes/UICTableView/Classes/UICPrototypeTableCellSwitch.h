@@ -5,9 +5,13 @@
 	BOOL value;
 }
 
+- (id)initWithTitle:(NSString*)title withSwitch:(BOOL)val;
+- (id)initWithTitle:(NSString*)title withUserDefaultsKey:(NSString*)key;
+
 - (id)tableCellViewWithReuseId:(NSString*)reuseId;
 - (NSString*)cellIdentifier;
 
-@property (readwrite) BOOL value;
+- (void)setValue:(BOOL)value;
+- (BOOL)value;
 
 @end

@@ -4,12 +4,6 @@
 #import "UICPrototypeTableCellSelect.h"
 #import "UICTableViewCell.h"
 
-@interface UICPrototypeTableCell(Private)
-- (id)initWithTitle:(NSString*)aText;
-
-@end
-
-
 @implementation UICPrototypeTableCell
 
 @synthesize title;
@@ -17,6 +11,7 @@
 - (id)initWithTitle:(NSString*)aText {
 	if (self = [super init]) {
 		title = [aText retain];
+		NSLog(@"UICPrototypeCell initWithTitle");
 	}
 	return self;
 }
@@ -26,10 +21,13 @@
 }
 
 + (id)cellForSwitch:(NSString*)aText withSwitch:(BOOL)val {
-	UICPrototypeTableCellSwitch *p = [[[UICPrototypeTableCellSwitch alloc] initWithTitle:aText] 
-										autorelease];
-	p.value = val;
-	return p;
+	return [[[UICPrototypeTableCellSwitch alloc] 
+					initWithTitle:aText withSwitch:val] autorelease];
+}
+
++ (id)cellForSwitch:(NSString*)aText withUserDefaultsKey:(NSString*)key{
+	return [[[UICPrototypeTableCellSwitch alloc] 
+			 initWithTitle:aText withUserDefaultsKey:key] autorelease];
 }
 
 + (id)cellForTextInput:(NSString*)aText withPlaceholder:(NSString*)placeholder {
@@ -47,7 +45,7 @@
 }
 
 + (id)cellsForTitles:(NSArray*)titles {
-	NSMutableArray *a = [[NSMutableArray alloc] init];
+	NSMutableArray *a = [NSMutableArray arrayWithCapacity:10];
 	for (NSString *title in titles) {
 		[a addObject:[UICPrototypeTableCell cellForTitle:title]];
 	}
@@ -64,7 +62,9 @@
 }
 
 - (void)dealloc {
+	NSLog(@"UICPrototypeCell dealloc");
 	[title release];
+	[userDefaultsKey release];
 	[super dealloc];
 }
 

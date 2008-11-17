@@ -14,4 +14,10 @@
 	return s;
 }
 
+- (void)dealloc {
+	[value release];
+	[placeholder release];
+	[super dealloc];
+}
+
 @end

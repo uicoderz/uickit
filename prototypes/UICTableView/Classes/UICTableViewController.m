@@ -11,6 +11,7 @@
 
 - (id)initWithStyle:(UITableViewStyle)style {
     if (self = [super initWithStyle:style]) {
+		NSLog(@"UICTableViewController initWithStyle");
 	}
     return self;
 }
@@ -75,7 +76,8 @@
 
 
 - (void)dealloc {
-	[groups dealloc];
+	NSLog(@"UICTableViewController dealloc");
+	[groups release];
     [super dealloc];
 }
 

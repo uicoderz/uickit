@@ -14,8 +14,8 @@
 							c,
 							nil];
 		NSArray *g2 = [NSArray arrayWithObjects:
-					   [UICPrototypeTableCell cellForSwitch:@"text1" withSwitch:YES],
-					   [UICPrototypeTableCell cellForSwitch:@"text2" withSwitch:NO],
+					   [UICPrototypeTableCell cellForSwitch:@"text1" withUserDefaultsKey:@"hoee"],
+					   [UICPrototypeTableCell cellForSwitch:@"text2" withUserDefaultsKey:@"fuga"],
 					   [UICPrototypeTableCell cellForSwitch:@"text3" withSwitch:YES],
 					   [UICPrototypeTableCell cellForSwitch:@"text4" withSwitch:NO],
 					   [UICPrototypeTableCell cellForSwitch:@"text5" withSwitch:YES],
@@ -86,9 +86,6 @@
 }
 */
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 @end
 
