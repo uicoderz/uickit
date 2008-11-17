@@ -5,7 +5,7 @@
 #import "UICTableViewCell.h"
 
 @interface UICPrototypeTableCell(Private)
-- (id)initWithText:(NSString*)aText;
+- (id)initWithTitle:(NSString*)aText;
 
 @end
 
@@ -14,33 +14,33 @@
 
 @synthesize title;
 
-- (id)initWithText:(NSString*)aText {
+- (id)initWithTitle:(NSString*)aText {
 	if (self = [super init]) {
 		title = [aText retain];
 	}
 	return self;
 }
 
-+ (id)cellForText:(NSString*)aText {
-	return [[[UICPrototypeTableCell alloc] initWithText:aText] autorelease];
++ (id)cellForTitle:(NSString*)aText {
+	return [[[UICPrototypeTableCell alloc] initWithTitle:aText] autorelease];
 }
 
 + (id)cellForSwitch:(NSString*)aText withSwitch:(BOOL)val {
-	UICPrototypeTableCellSwitch *p = [[[UICPrototypeTableCellSwitch alloc] initWithText:aText] 
+	UICPrototypeTableCellSwitch *p = [[[UICPrototypeTableCellSwitch alloc] initWithTitle:aText] 
 										autorelease];
 	p.value = val;
 	return p;
 }
 
 + (id)cellForTextInput:(NSString*)aText withPlaceholder:(NSString*)placeholder {
-	UICPrototypeTableCellTextInput *p = [[[UICPrototypeTableCellTextInput alloc] initWithText:aText] 
+	UICPrototypeTableCellTextInput *p = [[[UICPrototypeTableCellTextInput alloc] initWithTitle:aText] 
 											autorelease];
 	p.placeholder = placeholder;
 	return p;
 }
 
 + (id)cellForSelect:(NSString*)title withSelectTitles:(NSArray*)titles {
-	UICPrototypeTableCellSelect *p = [[[UICPrototypeTableCellSelect alloc] initWithText:title]
+	UICPrototypeTableCellSelect *p = [[[UICPrototypeTableCellSelect alloc] initWithTitle:title]
 									   autorelease];
 	p.titles = titles;
 	return p;
@@ -49,7 +49,7 @@
 + (id)cellsForTitles:(NSArray*)titles {
 	NSMutableArray *a = [[NSMutableArray alloc] init];
 	for (NSString *title in titles) {
-		[a addObject:[UICPrototypeTableCell cellForText:title]];
+		[a addObject:[UICPrototypeTableCell cellForTitle:title]];
 	}
 	return a;
 }

@@ -29,16 +29,16 @@
 					   nil];
 
 		NSArray *g4 = [NSArray arrayWithObjects:
-					   [UICPrototypeTableCell cellForText:@"text0"],
-					   [UICPrototypeTableCell cellForText:@"text1"],
-					   [UICPrototypeTableCell cellForText:@"text2"],
-					   [UICPrototypeTableCell cellForText:@"text3"],
-					   [UICPrototypeTableCell cellForText:@"text4"],
-					   [UICPrototypeTableCell cellForText:@"text5"],
-					   [UICPrototypeTableCell cellForText:@"text6"],
-					   [UICPrototypeTableCell cellForText:@"text7"],
-					   [UICPrototypeTableCell cellForText:@"text8"],
-					   [UICPrototypeTableCell cellForText:@"text9"],
+					   [UICPrototypeTableCell cellForTitle:@"text0"],
+					   [UICPrototypeTableCell cellForTitle:@"text1"],
+					   [UICPrototypeTableCell cellForTitle:@"text2"],
+					   [UICPrototypeTableCell cellForTitle:@"text3"],
+					   [UICPrototypeTableCell cellForTitle:@"text4"],
+					   [UICPrototypeTableCell cellForTitle:@"text5"],
+					   [UICPrototypeTableCell cellForTitle:@"text6"],
+					   [UICPrototypeTableCell cellForTitle:@"text7"],
+					   [UICPrototypeTableCell cellForTitle:@"text8"],
+					   [UICPrototypeTableCell cellForTitle:@"text9"],
 					   nil];
 		
 		groups = [[NSArray arrayWithObjects:
