@@ -19,7 +19,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -41,9 +41,9 @@
 		case 2:
 			cell.text = @"UITableViewCell (Grouped)";
 			break;
-		case 3:
-			cell.text = @"UICTableViewCell (Grouped)";
-			break;
+//		case 3:
+//			cell.text = @"UICTableViewCell (Grouped)";
+//			break;
 	}
 	
 	//cell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -66,9 +66,9 @@
 		case 2:
 			vc = [[[SampleGroupedTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
 			break;
-		case 3:
-			vc = [[[SampleGroupedTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
-			break;
+//		case 3:
+//			vc = [[[SampleGroupedTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+//			break;
 	}
 		
 	if (vc) {

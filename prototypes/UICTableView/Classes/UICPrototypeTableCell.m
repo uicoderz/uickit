@@ -8,46 +8,60 @@
 
 @synthesize title;
 
-- (id)initWithTitle:(NSString*)aText {
+- (id)initWithTitle:(NSString*)aTitle {
 	if (self = [super init]) {
-		title = [aText retain];
+		title = [aTitle retain];
 		NSLog(@"UICPrototypeCell initWithTitle");
 	}
 	return self;
 }
 
-+ (id)cellForTitle:(NSString*)aText {
-	return [[[UICPrototypeTableCell alloc] initWithTitle:aText] autorelease];
++ (id)cellForTitle:(NSString*)aTitle {
+	return [[[UICPrototypeTableCell alloc] initWithTitle:aTitle] autorelease];
 }
 
-+ (id)cellForSwitch:(NSString*)aText withSwitch:(BOOL)val {
++ (id)cellForSwitch:(NSString*)aTitle withSwitch:(BOOL)val {
 	return [[[UICPrototypeTableCellSwitch alloc] 
-					initWithTitle:aText withSwitch:val] autorelease];
+					initWithTitle:aTitle withSwitch:val] autorelease];
 }
 
-+ (id)cellForSwitch:(NSString*)aText withUserDefaultsKey:(NSString*)key{
++ (id)cellForSwitch:(NSString*)aTitle withUserDefaultsKey:(NSString*)key{
 	return [[[UICPrototypeTableCellSwitch alloc] 
-			 initWithTitle:aText withUserDefaultsKey:key] autorelease];
+			 initWithTitle:aTitle withUserDefaultsKey:key] autorelease];
 }
 
-+ (id)cellForTextInput:(NSString*)aText withPlaceholder:(NSString*)placeholder {
-	UICPrototypeTableCellTextInput *p = [[[UICPrototypeTableCellTextInput alloc] initWithTitle:aText] 
++ (id)cellForTextInput:(NSString*)aTitle withPlaceholder:(NSString*)placeholder {
+	UICPrototypeTableCellTextInput *p = [[[UICPrototypeTableCellTextInput alloc] initWithTitle:aTitle] 
 											autorelease];
 	p.placeholder = placeholder;
 	return p;
 }
 
-+ (id)cellForSelect:(NSString*)title withSelectTitles:(NSArray*)titles {
-	UICPrototypeTableCellSelect *p = [[[UICPrototypeTableCellSelect alloc] initWithTitle:title]
++ (id)cellForTextInput:(NSString*)aTitle withPlaceholder:(NSString*)placeholder withUserDefaultsKey:(NSString*)key {
+	UICPrototypeTableCellTextInput *p = [[[UICPrototypeTableCellTextInput alloc] initWithTitle:aTitle withUserDefaultsKey:key] 
+										 autorelease];
+	p.placeholder = placeholder;
+	return p;
+}
+
++ (id)cellForSelect:(NSString*)aTitle withSelectTitles:(NSArray*)titles {
+	UICPrototypeTableCellSelect *p = [[[UICPrototypeTableCellSelect alloc] initWithTitle:aTitle]
 									   autorelease];
+	p.titles = titles;
+	return p;
+}
+
++ (id)cellForSelect:(NSString*)aTitle withSelectTitles:(NSArray*)titles withUserDefaultsKey:(NSString*)key {
+	UICPrototypeTableCellSelect *p = [[[UICPrototypeTableCellSelect alloc] initWithTitle:aTitle withUserDefaultsKey:key]
+									  autorelease];
 	p.titles = titles;
 	return p;
 }
 
 + (id)cellsForTitles:(NSArray*)titles {
 	NSMutableArray *a = [NSMutableArray arrayWithCapacity:10];
-	for (NSString *title in titles) {
-		[a addObject:[UICPrototypeTableCell cellForTitle:title]];
+	for (NSString *t in titles) {
+		[a addObject:[UICPrototypeTableCell cellForTitle:t]];
 	}
 	return a;
 }

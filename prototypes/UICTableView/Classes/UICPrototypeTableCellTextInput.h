@@ -7,10 +7,16 @@
 	BOOL secure;
 }
 
+- (id)initWithTitle:(NSString*)title withUserDefaultsKey:(NSString*)key;
+
 - (id)tableCellViewWithReuseId:(NSString*)reuseId;
 - (NSString*)cellIdentifier;
 
-@property (readwrite, retain) NSString *value;	
+
+- (void)setValue:(NSString*)aValue;
+- (NSString*)value;
+
+//@property (readwrite, retain) NSString *value;	
 @property (readwrite, retain) NSString *placeholder;	
 @property (readwrite) BOOL secure;
 

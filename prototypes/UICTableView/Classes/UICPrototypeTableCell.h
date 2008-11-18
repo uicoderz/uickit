@@ -9,9 +9,9 @@
 + (id)cellForSwitch:(NSString*)title withSwitch:(BOOL)val;
 + (id)cellForSwitch:(NSString*)title withUserDefaultsKey:(NSString*)key;
 + (id)cellForTextInput:(NSString*)title withPlaceholder:(NSString*)placeholder;
-//+ (id)cellForTextInput:(NSString*)title withPlaceholder:(NSString*)placeholder withUserDefaultsKey:(NSString*)key;
++ (id)cellForTextInput:(NSString*)title withPlaceholder:(NSString*)placeholder withUserDefaultsKey:(NSString*)key;
 + (id)cellForSelect:(NSString*)title withSelectTitles:(NSArray*)titles;
-//+ (id)cellForSelect:(NSString*)title withSelectTitles:(NSArray*)titles withUserDefaultsKey:(NSString*)key;
++ (id)cellForSelect:(NSString*)title withSelectTitles:(NSArray*)titles withUserDefaultsKey:(NSString*)key;
 + (id)cellsForTitles:(NSArray*)titles;
 
 - (id)initWithTitle:(NSString*)aText;

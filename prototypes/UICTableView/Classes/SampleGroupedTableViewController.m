@@ -7,12 +7,13 @@
 - (id)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:style]) {
 
-		UICPrototypeTableCellTextInput *c = [UICPrototypeTableCell cellForTextInput:@"Passowrd" withPlaceholder:@"password"];
+		UICPrototypeTableCellTextInput *c = [UICPrototypeTableCell cellForTextInput:@"Passowrd" withPlaceholder:@"password" withUserDefaultsKey:@"passwd"];
 		c.secure = YES;
 		NSArray *g1 = [NSArray arrayWithObjects:
-							[UICPrototypeTableCell cellForTextInput:@"Username" withPlaceholder:@"username"],
+							[UICPrototypeTableCell cellForTextInput:@"Username" withPlaceholder:@"username" withUserDefaultsKey:@"uname"],
 							c,
 							nil];
+
 		NSArray *g2 = [NSArray arrayWithObjects:
 					   [UICPrototypeTableCell cellForSwitch:@"text1" withUserDefaultsKey:@"hoee"],
 					   [UICPrototypeTableCell cellForSwitch:@"text2" withUserDefaultsKey:@"fuga"],
@@ -22,8 +23,8 @@
 					   nil];
 		
 		NSArray *g3 = [NSArray arrayWithObjects:
-					   [UICPrototypeTableCell cellForSelect:@"testsel1" withSelectTitles:[NSArray arrayWithObjects:@"aaa", @"bbb", @"ccc", nil]],
-					   [UICPrototypeTableCell cellForSelect:@"testsel2" withSelectTitles:[NSArray arrayWithObjects:@"abc", @"123", @"456", @"789", nil]],
+					   [UICPrototypeTableCell cellForSelect:@"testsel1" withSelectTitles:[NSArray arrayWithObjects:@"aaa", @"bbb", @"ccc", nil] withUserDefaultsKey:@"list1"],
+					   [UICPrototypeTableCell cellForSelect:@"testsel2" withSelectTitles:[NSArray arrayWithObjects:@"abc", @"123", @"456", @"789", nil] withUserDefaultsKey:@"list2"],
 					   [UICPrototypeTableCell cellForSelect:@"testsel3" withSelectTitles:[NSArray arrayWithObjects:@"a", nil]],
 					   [UICPrototypeTableCell cellForSelect:@"testsel4" withSelectTitles:[NSArray arrayWithObjects:@"a", @"b", @"c", @"d", @"e", @"f", @"g", nil]],
 					   nil];
