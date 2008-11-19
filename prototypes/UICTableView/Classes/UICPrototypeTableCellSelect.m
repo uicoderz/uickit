@@ -16,7 +16,7 @@
 - (id)initWithTitle:(NSString*)aTitle withSelectTitles:(NSArray*)Titles withUserDefaultsKey:(NSString*)key {
 	if (self = [self initWithTitle:aTitle withSelectTitles:Titles]) {
 		userDefaultsKey = [key retain];
-		selectedIndex = 20;//[[NSUserDefaults standardUserDefaults] integerForKey:userDefaultsKey];
+		selectedIndex = [[NSUserDefaults standardUserDefaults] integerForKey:userDefaultsKey];
 		if (selectedIndex > titles.count) {
 			selectedIndex = 0;
 			[[NSUserDefaults standardUserDefaults] setInteger:selectedIndex forKey:userDefaultsKey];
