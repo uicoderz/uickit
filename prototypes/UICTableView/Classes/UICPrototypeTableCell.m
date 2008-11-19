@@ -37,25 +37,26 @@
 	return p;
 }
 
-+ (id)cellForTextInput:(NSString*)aTitle withPlaceholder:(NSString*)placeholder withUserDefaultsKey:(NSString*)key {
-	UICPrototypeTableCellTextInput *p = [[[UICPrototypeTableCellTextInput alloc] initWithTitle:aTitle withUserDefaultsKey:key] 
-										 autorelease];
++ (id)cellForTextInput:(NSString*)aTitle 
+	   withPlaceholder:(NSString*)placeholder 
+   withUserDefaultsKey:(NSString*)key {
+	UICPrototypeTableCellTextInput *p = [[[UICPrototypeTableCellTextInput alloc] 
+												initWithTitle:aTitle 
+										  withUserDefaultsKey:key] autorelease];
 	p.placeholder = placeholder;
 	return p;
 }
 
 + (id)cellForSelect:(NSString*)aTitle withSelectTitles:(NSArray*)titles {
-	UICPrototypeTableCellSelect *p = [[[UICPrototypeTableCellSelect alloc] initWithTitle:aTitle]
-									   autorelease];
-	p.titles = titles;
-	return p;
+	return [[[UICPrototypeTableCellSelect alloc] initWithTitle:aTitle 
+											  withSelectTitles:titles] autorelease];
 }
 
-+ (id)cellForSelect:(NSString*)aTitle withSelectTitles:(NSArray*)titles withUserDefaultsKey:(NSString*)key {
-	UICPrototypeTableCellSelect *p = [[[UICPrototypeTableCellSelect alloc] initWithTitle:aTitle withUserDefaultsKey:key]
-									  autorelease];
-	p.titles = titles;
-	return p;
++ (id)cellForSelect:(NSString*)aTitle withSelectTitles:(NSArray*)titles 
+									withUserDefaultsKey:(NSString*)key {
+	return [[[UICPrototypeTableCellSelect alloc] initWithTitle:aTitle 
+											  withSelectTitles:titles
+										   withUserDefaultsKey:key] autorelease];
 }
 
 + (id)cellsForTitles:(NSArray*)titles {

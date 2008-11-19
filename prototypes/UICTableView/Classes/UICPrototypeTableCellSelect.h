@@ -6,7 +6,8 @@
 	int selectedIndex;
 }
 
-- (id)initWithTitle:(NSString*)title withUserDefaultsKey:(NSString*)key;
+- (id)initWithTitle:(NSString*)title withSelectTitles:(NSArray*)titles;
+- (id)initWithTitle:(NSString*)title withSelectTitles:(NSArray*)titles withUserDefaultsKey:(NSString*)key;
 
 - (id)tableCellViewWithReuseId:(NSString*)reuseId;
 - (NSString*)cellIdentifier;

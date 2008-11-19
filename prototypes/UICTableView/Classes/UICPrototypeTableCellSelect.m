@@ -5,10 +5,23 @@
 
 @synthesize titles;
 
-- (id)initWithTitle:(NSString*)aTitle withUserDefaultsKey:(NSString*)key {
+- (id)initWithTitle:(NSString*)aTitle withSelectTitles:(NSArray*)Titles {
 	if (self = [super initWithTitle:aTitle]) {
+		titles = [Titles retain];
+		selectedIndex = 0;
+	}
+	return self;
+}
+
+- (id)initWithTitle:(NSString*)aTitle withSelectTitles:(NSArray*)Titles withUserDefaultsKey:(NSString*)key {
+	if (self = [self initWithTitle:aTitle withSelectTitles:Titles]) {
 		userDefaultsKey = [key retain];
-		selectedIndex = [[NSUserDefaults standardUserDefaults] integerForKey:userDefaultsKey];
+		selectedIndex = 20;//[[NSUserDefaults standardUserDefaults] integerForKey:userDefaultsKey];
+		if (selectedIndex > titles.count) {
+			selectedIndex = 0;
+			[[NSUserDefaults standardUserDefaults] setInteger:selectedIndex forKey:userDefaultsKey];
+			[[NSUserDefaults standardUserDefaults] synchronize];
+		}
 	}
 	return self;
 }

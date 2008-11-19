@@ -8,7 +8,7 @@
 
 //		self.selectionStyle = UITableViewCellSelectionStyleNone;
 
-		label = [[[[UILabel alloc] initWithFrame:CGRectMake(110, 12, 160, 24)] autorelease] retain];
+		label = [[[[UILabel alloc] initWithFrame:CGRectMake(160, 12, 110, 24)] autorelease] retain];
 //		label.text = @"test";
 		label.font = [UIFont systemFontOfSize:18];
 		label.textAlignment = UITextAlignmentRight;
