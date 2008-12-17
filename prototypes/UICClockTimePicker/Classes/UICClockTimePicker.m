@@ -15,6 +15,8 @@
 - (id)initWithFrame:(CGRect)frame
 {
    if (self = [super initWithFrame:frame]) {
+      hour_angle = 0.0f;
+      minute_angle = 0.0f;
       hour = 0;
       minute = 0;
    }
@@ -57,10 +59,10 @@ float radians(float x) {
    }
    // Draw ticks
 
-   float x0 = self.bounds.size.width/2  + ( cosf(radians(a)) * (r-8) );
-   float y0 = self.bounds.size.height/2 + ( sinf(radians(a)) * (r-8) );
-   float x1 = self.bounds.size.width/2  + ( cosf(radians(a)) * r );
-   float y1 = self.bounds.size.height/2 + ( sinf(radians(a)) * r );
+   float x0 = self.bounds.size.width/2;
+   float y0 = self.bounds.size.height/2;
+   float x1 = self.bounds.size.width/2  + ( sinf(radians(hour_angle)) * r );
+   float y1 = self.bounds.size.height/2 + ( -cosf(radians(hour_angle)) * r );
 
    CGPoint points[] = {{x0, y0}, {x1, y1}};
 

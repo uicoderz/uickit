@@ -16,6 +16,8 @@
 
 @interface UICClockTimePicker : UIView
 {
+   float hour_angle;
+   float minute_angle;
    NSInteger hour;
    NSInteger minute;
    id delegate;
