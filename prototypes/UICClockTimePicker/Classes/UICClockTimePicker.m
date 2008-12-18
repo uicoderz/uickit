@@ -19,6 +19,7 @@
       minute_angle = 0.0f;
       hour = 0;
       minute = 0;
+      self.multipleTouchEnabled = true;
    }
    return self;
 }
@@ -76,5 +77,22 @@ float radians(float x) {
    [super dealloc];
 }
 
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+   for (UITouch *touch in touches) {
+      CGPoint location = [touch locationInView:self];
+      hour_angle = location.x / (float)self.bounds.size.width * 360.0f;
+   }
+   [self setNeedsDisplay];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+}
 
 @end
