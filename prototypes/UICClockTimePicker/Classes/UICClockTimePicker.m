@@ -19,7 +19,7 @@ const float margin = 3.0f;
    if (self = [super initWithFrame:frame]) {
       hour_angle = 0.0f;
       minute_angle = 0.0f;
-      hour = 0;
+      hour = 12;
       minute = 0;
       self.multipleTouchEnabled = true;
    }
@@ -86,7 +86,20 @@ float radians(float x) {
       float y = (self.bounds.size.height-margin*2)/2 + ( sinf(radians(i*30 - 90)) * (r-18) );
 
       CGPoint pt = {x, y};
-      [[NSString stringWithFormat:@"%d", i] drawAtPoint:pt withFont:[UIFont systemFontOfSize:16]];
+
+      if (i == hour) {
+         CGContextSetRGBFillColor (context, 1, 0, 0, .5);
+         CGContextSetRGBStrokeColor (context, 0, 0, 1, 1);
+      } else {
+         CGContextSetRGBFillColor (context, 0, 0, 0, 1);
+         CGContextSetRGBStrokeColor (context, 0, 0, 0, 1);
+      }
+
+      [[NSString stringWithFormat:@"%d", i] drawAtPoint:pt withFont:[UIFont systemFontOfSize:
+         (i == hour ? 24 : 18)]];
+
+      CGContextSetRGBFillColor (context, 0, 0, 0, 1);
+      CGContextSetRGBStrokeColor (context, 0, 0, 0, 1);
    }
 
    [self drawHourTick];
