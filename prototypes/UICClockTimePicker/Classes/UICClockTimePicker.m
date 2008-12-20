@@ -30,10 +30,43 @@ float radians(float x) {
    return x * 2*M_PI / 360.0f;
 }
 
-- (void)drawRect:(CGRect)rect
+- (void) drawMinuteTick
 {
-   float r = (self.bounds.size.width-margin*2) / 2;
+   const float r = (self.bounds.size.width-margin*2) / 2;
+   CGContextRef context = UIGraphicsGetCurrentContext();
 
+   // Draw ticks
+   float x0 = self.bounds.size.width/2;
+   float y0 = self.bounds.size.height/2;
+   float x1 = self.bounds.size.width/2  + ( sinf(radians(minute_angle)) * r );
+   float y1 = self.bounds.size.height/2 + ( -cosf(radians(minute_angle)) * r );
+
+   CGPoint points[] = {{x0, y0}, {x1, y1}};
+
+   CGContextAddLines (context, points, 2);
+   CGContextStrokePath(context);
+}
+
+- (void) drawHourTick
+{
+   const float r = (self.bounds.size.width-margin*2) / 4;
+   CGContextRef context = UIGraphicsGetCurrentContext();
+
+   // Draw ticks
+   float x0 = self.bounds.size.width/2;
+   float y0 = self.bounds.size.height/2;
+   float x1 = self.bounds.size.width/2  + ( sinf(radians(hour_angle)) * r );
+   float y1 = self.bounds.size.height/2 + ( -cosf(radians(hour_angle)) * r );
+
+   CGPoint points[] = {{x0, y0}, {x1, y1}};
+
+   CGContextAddLines (context, points, 2);
+   CGContextStrokePath(context);
+}
+
+- (void) drawRect:(CGRect)rect
+{
+   const float r = (self.bounds.size.width-margin*2) / 2;
    CGRect outer_rect = CGRectMake(
       margin,
       margin,
@@ -56,32 +89,9 @@ float radians(float x) {
       [[NSString stringWithFormat:@"%d", i] drawAtPoint:pt withFont:[UIFont systemFontOfSize:16]];
    }
 
-/*
-   // Draw the minute ticks
-   for (int a = 0; a < 360; a+=30) {
-      float x0 = self.bounds.size.width/2  + ( cosf(radians(a)) * (r-8) );
-      float y0 = self.bounds.size.height/2 + ( sinf(radians(a)) * (r-8) );
-      float x1 = self.bounds.size.width/2  + ( cosf(radians(a)) * r );
-      float y1 = self.bounds.size.height/2 + ( sinf(radians(a)) * r );
-
-      CGPoint points[] = {{x0, y0}, {x1, y1}};
-
-      CGContextAddLines (context, points, 2);
-      CGContextStrokePath(context);
-   }
-*/
-   // Draw ticks
-   float x0 = self.bounds.size.width/2;
-   float y0 = self.bounds.size.height/2;
-   float x1 = self.bounds.size.width/2  + ( sinf(radians(hour_angle)) * r );
-   float y1 = self.bounds.size.height/2 + ( -cosf(radians(hour_angle)) * r );
-
-   CGPoint points[] = {{x0, y0}, {x1, y1}};
-
-   CGContextAddLines (context, points, 2);
-   CGContextStrokePath(context);
+   [self drawHourTick];
+   [self drawMinuteTick];
 }
-
 
 - (void)dealloc
 {
@@ -105,8 +115,11 @@ float distance(CGPoint p1, CGPoint p2)
             (self.bounds.size.width-margin*2)/2  + ( cosf(radians(i*30 - 90)) * (r-18) ),
             (self.bounds.size.height-margin*2)/2 + ( sinf(radians(i*30 - 90)) * (r-18) )
          };
-         if (distance(loc, hour_loc) < 20.0f)
-            NSLog(@"hit %d, dist=%f", i, distance(loc, hour_loc));
+         if (distance(loc, hour_loc) < 20.0f) {
+            hour = i;
+            hour_angle = i*30;
+            [self setNeedsDisplay];
+         }
       }
       break;
    }
@@ -116,7 +129,7 @@ float distance(CGPoint p1, CGPoint p2)
 {
    for (UITouch *touch in touches) {
       CGPoint location = [touch locationInView:self];
-      hour_angle = location.x / (float)self.bounds.size.width * 360.0f;
+      minute_angle = location.x / (float)self.bounds.size.width * 360.0f;
       break;
    }
    [self setNeedsDisplay];
