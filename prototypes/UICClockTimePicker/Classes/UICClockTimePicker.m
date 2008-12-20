@@ -12,6 +12,8 @@
 
 @synthesize hour, minute, delegate;
 
+const float margin = 3.0f;
+
 - (id)initWithFrame:(CGRect)frame
 {
    if (self = [super initWithFrame:frame]) {
@@ -30,7 +32,6 @@ float radians(float x) {
 
 - (void)drawRect:(CGRect)rect
 {
-   const float margin = 3.0f;
    float r = (self.bounds.size.width-margin*2) / 2;
 
    CGRect outer_rect = CGRectMake(
@@ -46,6 +47,16 @@ float radians(float x) {
    CGContextSetLineWidth(context, margin);
    CGContextAddEllipseInRect(context, outer_rect);
 
+   // hours
+   for (int i=1; i<=12; i++) {
+      float x = (self.bounds.size.width-margin*2)/2  + ( cosf(radians(i*30 - 90)) * (r-18) );
+      float y = (self.bounds.size.height-margin*2)/2 + ( sinf(radians(i*30 - 90)) * (r-18) );
+
+      CGPoint pt = {x, y};
+      [[NSString stringWithFormat:@"%d", i] drawAtPoint:pt withFont:[UIFont systemFontOfSize:16]];
+   }
+
+/*
    // Draw the minute ticks
    for (int a = 0; a < 360; a+=30) {
       float x0 = self.bounds.size.width/2  + ( cosf(radians(a)) * (r-8) );
@@ -58,8 +69,8 @@ float radians(float x) {
       CGContextAddLines (context, points, 2);
       CGContextStrokePath(context);
    }
+*/
    // Draw ticks
-
    float x0 = self.bounds.size.width/2;
    float y0 = self.bounds.size.height/2;
    float x1 = self.bounds.size.width/2  + ( sinf(radians(hour_angle)) * r );
@@ -77,9 +88,28 @@ float radians(float x) {
    [super dealloc];
 }
 
+float distance(CGPoint p1, CGPoint p2)
+{
+   return sqrt((p1.x-p2.x) * (p1.x-p2.x) + (p1.y-p2.y) * (p1.y-p2.y));
+}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+   float r = (self.bounds.size.width-margin*2) / 2;
+
+   for (UITouch *touch in touches) {
+      CGPoint loc = [touch locationInView:self];
+
+      for (int i=1; i<=12; i++) {
+         CGPoint hour_loc = {
+            (self.bounds.size.width-margin*2)/2  + ( cosf(radians(i*30 - 90)) * (r-18) ),
+            (self.bounds.size.height-margin*2)/2 + ( sinf(radians(i*30 - 90)) * (r-18) )
+         };
+         if (distance(loc, hour_loc) < 20.0f)
+            NSLog(@"hit %d, dist=%f", i, distance(loc, hour_loc));
+      }
+      break;
+   }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -87,6 +117,7 @@ float radians(float x) {
    for (UITouch *touch in touches) {
       CGPoint location = [touch locationInView:self];
       hour_angle = location.x / (float)self.bounds.size.width * 360.0f;
+      break;
    }
    [self setNeedsDisplay];
 }
