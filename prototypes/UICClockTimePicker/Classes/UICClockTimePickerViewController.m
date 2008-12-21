@@ -7,10 +7,9 @@
 //
 
 #import "UICClockTimePickerViewController.h"
+#import "UICClockTimePicker.h"
 
 @implementation UICClockTimePickerViewController
-
-
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -22,11 +21,14 @@
 }
 */
 
-/*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
+- (void) loadView
+{
+   [super loadView];
+   UICClockTimePicker *ctp = [[UICClockTimePicker alloc] initWithFrame:CGRectMake(32, 81, 256, 256)];
+   [self.view addSubview:ctp];
+   [ctp release];
 }
-*/
 
 
 /*

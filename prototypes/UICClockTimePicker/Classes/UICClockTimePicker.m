@@ -17,6 +17,7 @@ const float margin = 3.0f;
 - (id)initWithFrame:(CGRect)frame
 {
    if (self = [super initWithFrame:frame]) {
+      self.backgroundColor = [UIColor whiteColor];
       hour_angle = 0.0f;
       minute_angle = 0.0f;
       hour = 12;
