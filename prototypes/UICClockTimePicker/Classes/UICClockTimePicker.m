@@ -196,8 +196,6 @@ float dot_product(CGPoint v1, CGPoint v2)
    for (UITouch *touch in touches) {
       if (minute_moving) {
          CGPoint loc = [touch locationInView:self];
-         minute = loc.x / (float)self.bounds.size.width * 360.0f;
-
          CGPoint current_vec = {
             loc.x - cntr.x,
             loc.y - cntr.y
@@ -210,7 +208,17 @@ float dot_product(CGPoint v1, CGPoint v2)
          float cos_theta = dot_p / vec_length(current_vec);
          float rad = acosf(current_vec.x < 0 ? cos_theta : -cos_theta );
          float theta = rad / (2*M_PI) * 360.0f;
+         NSInteger minute_old = minute;
          minute = theta / 360.0f * 60.0f + (current_vec.x < 0 ? 30 : 0);
+
+         if (minute < minute_old && minute < 4 && minute_old > 55) {
+            hour++;
+            if (hour > 12) hour = 1;
+         }
+         if (minute > minute_old && minute > 55 && minute_old < 4) {
+            hour--;
+            if (hour < 1) hour = 12;
+         }
 
          [self setNeedsDisplay];
       }
