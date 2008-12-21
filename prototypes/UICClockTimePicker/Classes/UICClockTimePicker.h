@@ -18,8 +18,11 @@
 {
    float hour_angle;
    float minute_angle;
+   float hour_hand_r;
+   float minute_hand_r;
    NSInteger hour;
    NSInteger minute;
+   BOOL minute_moving;
    id delegate;
 }
 
