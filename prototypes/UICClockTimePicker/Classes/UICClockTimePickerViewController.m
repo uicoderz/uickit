@@ -9,6 +9,8 @@
 #import "UICClockTimePickerViewController.h"
 #import "UICClockTimePicker.h"
 
+#define TIME_LABEL_TAG 1
+
 @implementation UICClockTimePickerViewController
 
 /*
@@ -27,7 +29,16 @@
    [super loadView];
    UICClockTimePicker *ctp = [[UICClockTimePicker alloc] initWithFrame:CGRectMake(32, 81, 256, 256)];
    [self.view addSubview:ctp];
+   ctp.delegate =self;
    [ctp release];
+
+   UILabel *time_label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 64, 32)];
+   time_label.center = CGPointMake(self.view.center.x, 400);
+   time_label.text = @"time";
+   time_label.textColor = [UIColor blackColor];
+   time_label.tag = TIME_LABEL_TAG;
+   [self.view addSubview:time_label];
+   [time_label release];
 }
 
 
@@ -56,6 +67,13 @@
 
 - (void)dealloc {
     [super dealloc];
+}
+
+// UICClockTimePickerDelegate
+- (void) picked:(UICClockTimePicker *)picker
+{
+   UILabel *time_label = (UILabel *)[self.view viewWithTag:TIME_LABEL_TAG];
+   time_label.text = [NSString stringWithFormat:@"%02d:%02d", picker.hour, picker.minute];
 }
 
 @end

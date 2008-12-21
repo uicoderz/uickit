@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UICClockTimePicker.h"
 
-@class UICClockTimePicker;
-
-@interface UICClockTimePickerViewController : UIViewController {
+@interface UICClockTimePickerViewController : UIViewController <UICClockTimePickerDelegate>
+{
    IBOutlet UICClockTimePicker *timePicker;
 }
 

@@ -22,6 +22,7 @@
    float minute_hand_r;
    NSInteger hour;
    NSInteger minute;
+   CGPoint origin;
    BOOL minute_moving;
    id delegate;
 }
