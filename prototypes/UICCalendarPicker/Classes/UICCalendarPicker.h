@@ -31,9 +31,33 @@ typedef enum {
 	UICCalendarPickerDayOfWeekSaturday,
 } UICCalendarPickerDayOfWeek;
 
+@class UICCalendarPicker;
+
+@protocol UICCalendarPickerDelegate<NSObject>
+@optional
+- (void)picker:(UICCalendarPicker *)picker pushedCloseButton:(id)sender;
+- (void)picker:(UICCalendarPicker *)picker pushedPrevButton:(id)sender;
+- (void)picker:(UICCalendarPicker *)picker pushedNextButton:(id)sender;
+- (void)picker:(UICCalendarPicker *)picker didSelectDate:(NSArray *)selectedDate;
+@end
+
+@protocol UICCalendarPickerDataSource<NSObject>
+@optional
+- (NSString *)picker:(UICCalendarPicker *)picker textForYearMonth:(NSDate *)aDate;
+- (void)picker:(UICCalendarPicker *)picker buttonForDateToday:(UICCalendarPickerDateButton *)button;
+- (void)picker:(UICCalendarPicker *)picker buttonForDateWeekday:(UICCalendarPickerDateButton *)button;
+- (void)picker:(UICCalendarPicker *)picker buttonForDateSaturday:(UICCalendarPickerDateButton *)button;
+- (void)picker:(UICCalendarPicker *)picker buttonForDateSunday:(UICCalendarPickerDateButton *)button;
+- (void)picker:(UICCalendarPicker *)picker buttonForDateMonthOut:(UICCalendarPickerDateButton *)button;
+- (void)picker:(UICCalendarPicker *)picker buttonForDateOutOfRange:(UICCalendarPickerDateButton *)button;
+- (void)picker:(UICCalendarPicker *)picker buttonForDateSelected:(UICCalendarPickerDateButton *)button;
+- (void)picker:(UICCalendarPicker *)picker buttonForDateBlank:(UICCalendarPickerDateButton *)button;
+- (void)picker:(UICCalendarPicker *)picker buttonForDate:(UICCalendarPickerDateButton *)button;
+@end
+
 @interface UICCalendarPicker : UIImageView {
-	id delegate;
-	id dataSource;
+	id<UICCalendarPickerDelegate> delegate;
+	id<UICCalendarPickerDataSource> dataSource;
 	
 	UICCalendarPickerStyle style;
 	UICCalendarPickerSelectionMode selectionMode;
@@ -83,24 +107,4 @@ typedef enum {
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)aView animated:(BOOL)animated;
 - (void)dismiss:(id)sender animated:(BOOL)animated;
 
-@end
-
-@protocol UICCalendarPickerDelegate
-- (void)picker:(UICCalendarPicker *)picker pushedCloseButton:(id)sender;
-- (void)picker:(UICCalendarPicker *)picker pushedPrevButton:(id)sender;
-- (void)picker:(UICCalendarPicker *)picker pushedNextButton:(id)sender;
-- (void)picker:(UICCalendarPicker *)picker didSelectDate:(NSArray *)selectedDate;
-@end
-
-@protocol UICCalendarPickerDataSource
-- (NSString *)picker:(UICCalendarPicker *)picker textForYearMonth:(NSDate *)aDate;
-- (void)picker:(UICCalendarPicker *)picker buttonForDateToday:(UICCalendarPickerDateButton *)button;
-- (void)picker:(UICCalendarPicker *)picker buttonForDateWeekday:(UICCalendarPickerDateButton *)button;
-- (void)picker:(UICCalendarPicker *)picker buttonForDateSaturday:(UICCalendarPickerDateButton *)button;
-- (void)picker:(UICCalendarPicker *)picker buttonForDateSunday:(UICCalendarPickerDateButton *)button;
-- (void)picker:(UICCalendarPicker *)picker buttonForDateMonthOut:(UICCalendarPickerDateButton *)button;
-- (void)picker:(UICCalendarPicker *)picker buttonForDateOutOfRange:(UICCalendarPickerDateButton *)button;
-- (void)picker:(UICCalendarPicker *)picker buttonForDateSelected:(UICCalendarPickerDateButton *)button;
-- (void)picker:(UICCalendarPicker *)picker buttonForDateBlank:(UICCalendarPickerDateButton *)button;
-- (void)picker:(UICCalendarPicker *)picker buttonForDate:(UICCalendarPickerDateButton *)button;
 @end

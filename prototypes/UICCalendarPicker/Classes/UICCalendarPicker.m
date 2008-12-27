@@ -81,6 +81,7 @@ static UIColor *holidayColor;
 @synthesize selectionMode;
 
 @synthesize pageDate;
+@synthesize today;
 
 @synthesize selectedDates;
 
