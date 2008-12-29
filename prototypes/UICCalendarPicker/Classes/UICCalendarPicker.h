@@ -91,7 +91,7 @@ typedef enum {
 @property (nonatomic, retain, setter=setTitleText:) NSString *titleText;
 @property (nonatomic, retain, setter=setWeekText:) NSArray *weekText;
 
-@property (nonatomic, retain) NSMutableArray *selectedDates;
+@property (nonatomic, retain, readonly) NSMutableArray *selectedDates;
 
 @property (nonatomic, retain) NSDate *pageDate;
 @property (nonatomic, retain) NSDate *today;

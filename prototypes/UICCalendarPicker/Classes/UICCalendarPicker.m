@@ -185,7 +185,7 @@ static UIColor *holidayColor;
 			[dateButton release];
 		}
 		
-		self.selectedDates = [NSMutableArray array];
+		selectedDates = [[NSMutableArray alloc] init];
 		
 		gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
 		dateFormatter = [[NSDateFormatter alloc] init];
