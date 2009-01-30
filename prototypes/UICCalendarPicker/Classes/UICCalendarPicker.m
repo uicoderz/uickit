@@ -220,9 +220,6 @@ static UIColor *holidayColor;
 	[weekText release];
 	[titleText release];
 	
-	[dataSource release];
-	[delegate release];
-	
     [super dealloc];
 }
 
@@ -648,9 +645,9 @@ static UIColor *holidayColor;
 	
 	NSDate *lastManthDate = [gregorian dateByAddingComponents:minusComponents toDate:date options:0];
 	NSDateComponents *lastManthDateComponents = [self getDateComponentsFromDate:lastManthDate];
-	NSInteger weekday = [lastManthDateComponents weekday];
+	NSUInteger weekday = [lastManthDateComponents weekday];
 	while (weekday != 7) {
-		NSInteger day = [lastManthDateComponents day];
+		NSUInteger day = [lastManthDateComponents day];
 		
 		UICCalendarPickerDateButton *dateButton = (UICCalendarPickerDateButton *)[self viewWithTag:(7 * 0) + weekday];
 		[self resetButtonAtributes:dateButton];
@@ -686,17 +683,17 @@ static UIColor *holidayColor;
 	[plusComponents setDay:1];
 	
 	//NSInteger year = [components year];
-	NSInteger month = [components month];
+	NSUInteger month = [components month];
 	UILabel *monthLabel = (UILabel *)[self viewWithTag:UICCALENDAR_MONTH_LABEL_TAG];
 	[monthLabel setText:[self picker:self textForYearMonth:currentDate]];
 	if ([dataSource respondsToSelector:@selector(picker:textForYearMonth:)]) {
 		[monthLabel setText:[dataSource picker:self textForYearMonth:currentDate]];
 	}
 	
-	NSInteger weekOfMonth = 0;
+	NSUInteger weekOfMonth = 0;
 	do {
-		NSInteger day = [components day];
-		NSInteger weekday = [components weekday];
+		NSUInteger day = [components day];
+		NSUInteger weekday = [components weekday];
 		
 		UICCalendarPickerDateButton *dateButton = (UICCalendarPickerDateButton *)[self viewWithTag:(7 * weekOfMonth) + weekday];
 		[self resetButtonAtributes:dateButton];
@@ -735,9 +732,14 @@ static UIColor *holidayColor;
 	
 	weekday = [components weekday];
 	while (weekday != 1) {
-		NSInteger day = [components day];
+		NSUInteger day = [components day];
 		
 		UICCalendarPickerDateButton *dateButton = (UICCalendarPickerDateButton *)[self viewWithTag:(7 * weekOfMonth) + weekday];
+		
+		if (weekday == 7) {
+			weekOfMonth++;
+		}
+		
 		[self resetButtonAtributes:dateButton];
 		
 		[dateButton setTitle:[NSString stringWithFormat:@"%d", day] forState:UIControlStateNormal];
@@ -768,17 +770,15 @@ static UIColor *holidayColor;
 		weekday = [components weekday];
 	}
 	
-	if (weekOfMonth == 4) {
-		for (int i = 35 + weekday; i <= 42; i++) {
-			UICCalendarPickerDateButton *dateButton = (UICCalendarPickerDateButton *)[self viewWithTag:i];
-			[self resetButtonAtributes:dateButton];
-			
-			[dateButton setTitle:nil forState:UIControlStateNormal];
-			[dateButton setDate:nil];
-			[self picker:self buttonForDate:dateButton];
-			if ([dataSource respondsToSelector:@selector(picker:buttonForDate:)]) {
-				[dataSource picker:self buttonForDate:dateButton];
-			}
+	for (int i = (7 * weekOfMonth) + weekday; i <= 42; i++) {
+		UICCalendarPickerDateButton *dateButton = (UICCalendarPickerDateButton *)[self viewWithTag:i];
+		[self resetButtonAtributes:dateButton];
+		
+		[dateButton setTitle:nil forState:UIControlStateNormal];
+		[dateButton setDate:nil];
+		[self picker:self buttonForDate:dateButton];
+		if ([dataSource respondsToSelector:@selector(picker:buttonForDate:)]) {
+			[dataSource picker:self buttonForDate:dateButton];
 		}
 	}
 }

@@ -153,10 +153,10 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="503951785"/>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUIHighlightedTitle">1 week</string>
-						<string key="IBUIDisabledTitle">1 week</string>
-						<string key="IBUISelectedTitle">1 week</string>
-						<string key="IBUINormalTitle">1 week</string>
+						<string key="IBUIHighlightedTitle">1 Week</string>
+						<string key="IBUIDisabledTitle">1 Week</string>
+						<string key="IBUISelectedTitle">1 Week</string>
+						<string key="IBUINormalTitle">1 Week</string>
 						<reference key="IBUIHighlightedTitleColor" ref="507719273"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -166,7 +166,7 @@
 					<object class="IBUIButton" id="743560410">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{224, 98}, {76, 37}}</string>
+						<string key="NSFrame">{{221, 98}, {83, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -174,10 +174,10 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="503951785"/>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUIHighlightedTitle">12 - 1</string>
-						<string key="IBUIDisabledTitle">12 - 1</string>
-						<string key="IBUISelectedTitle">12 - 1</string>
-						<string key="IBUINormalTitle">12 - 1</string>
+						<string key="IBUIHighlightedTitle">1 Month</string>
+						<string key="IBUIDisabledTitle">1 Month</string>
+						<string key="IBUISelectedTitle">1 Month</string>
+						<string key="IBUINormalTitle">1 Month</string>
 						<reference key="IBUIHighlightedTitleColor" ref="507719273"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -187,7 +187,7 @@
 					<object class="IBUIButton" id="1073247620">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 143}, {76, 37}}</string>
+						<string key="NSFrame">{{19, 143}, {78, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -195,10 +195,10 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="503951785"/>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUIHighlightedTitle">12 -</string>
-						<string key="IBUIDisabledTitle">12 -</string>
-						<string key="IBUISelectedTitle">12 -</string>
-						<string key="IBUINormalTitle">12 -</string>
+						<string key="IBUIHighlightedTitle">Today -</string>
+						<string key="IBUIDisabledTitle">Today -</string>
+						<string key="IBUISelectedTitle">Today -</string>
+						<string key="IBUINormalTitle">Today -</string>
 						<reference key="IBUIHighlightedTitleColor" ref="507719273"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -208,7 +208,7 @@
 					<object class="IBUIButton" id="995822919">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{122, 143}, {76, 37}}</string>
+						<string key="NSFrame">{{121, 143}, {78, 37}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -216,10 +216,10 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="503951785"/>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUIHighlightedTitle">- 12</string>
-						<string key="IBUIDisabledTitle">- 12</string>
-						<string key="IBUISelectedTitle">- 12</string>
-						<string key="IBUINormalTitle">- 12</string>
+						<string key="IBUIHighlightedTitle">- Today</string>
+						<string key="IBUIDisabledTitle">- Today</string>
+						<string key="IBUISelectedTitle">- Today</string>
+						<string key="IBUINormalTitle">- Today</string>
 						<reference key="IBUIHighlightedTitleColor" ref="507719273"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>

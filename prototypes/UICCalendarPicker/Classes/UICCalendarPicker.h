@@ -82,8 +82,8 @@ typedef enum {
 	NSDateFormatter *dateFormatter;
 }
 
-@property (nonatomic, retain) id delegate;
-@property (nonatomic, retain) id dataSource;
+@property (nonatomic, assign) id delegate;
+@property (nonatomic, assign) id dataSource;
 
 @property (nonatomic) UICCalendarPickerStyle style;
 @property (nonatomic) UICCalendarPickerSelectionMode selectionMode;
