@@ -8,14 +8,6 @@
 @synthesize monthout;
 @synthesize outOfRange;
 
-- (BOOL)isToday {
-	return isToday;
-}
-
-- (void)setToday:(BOOL)b {
-	isToday = b;
-}
-
 - (id)init {
 	if (self = [super init]) {
 		button = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
@@ -48,6 +40,14 @@
 		signature = [button methodSignatureForSelector:aSelector];
 	}
 	return signature;
+}
+
+- (BOOL)isToday {
+	return isToday;
+}
+
+- (void)setToday:(BOOL)b {
+	isToday = b;
 }
 
 @end

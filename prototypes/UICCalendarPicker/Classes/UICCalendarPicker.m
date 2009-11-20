@@ -412,7 +412,7 @@ static UIColor *holidayColor;
 		
 		[UIView beginAnimations:nil context:NULL];
 		[UIView setAnimationDuration:0.3f];
-		[UIView setAnimationTransition:UIViewAnimationCurveEaseInOut forView:self cache:NO];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		[self setAlpha:1.0f];
 		frame.origin.y = frame.origin.y + frame.size.height / 2;
 		self.frame = frame;
@@ -436,7 +436,7 @@ static UIColor *holidayColor;
 		
 		[UIView beginAnimations:nil context:NULL];
 		[UIView setAnimationDuration:0.3f];
-		[UIView setAnimationTransition:UIViewAnimationCurveEaseInOut forView:self cache:NO];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		[self setAlpha:1.0f];
 		frame.origin.y = frame.origin.y + frame.size.height / 2;
 		self.frame = frame;
@@ -456,7 +456,7 @@ static UIColor *holidayColor;
 		[UIView setAnimationDelegate:self];
 		[UIView setAnimationDidStopSelector:@selector(animationFinished:finished:context:)];
 		[UIView setAnimationDuration:0.3f];
-		[UIView setAnimationTransition:UIViewAnimationCurveEaseInOut forView:self cache:NO];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		[self setAlpha:0.0f];
 		CGRect frame = [self frame];
 		frame.origin.y = frame.origin.y - frame.size.height / 2;
