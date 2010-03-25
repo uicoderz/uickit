@@ -9,6 +9,42 @@
 
 @synthesize hour, minute, frequency, working;
 
+static NSArray *s_colors = nil;
+
++ (NSArray *) colors
+{
+   if (s_colors == nil) {
+      s_colors = [NSArray arrayWithObjects:
+                  [UIColor colorWithRed:0.31 green:0.31 blue:0.31 alpha:0.8], // 0
+                  [UIColor colorWithRed:0.25 green:0.25 blue:0.25 alpha:0.8],
+                  [UIColor colorWithRed:0.20 green:0.20 blue:0.20 alpha:0.8],
+                  [UIColor colorWithRed:0.25 green:0.25 blue:0.25 alpha:0.8],
+                  [UIColor colorWithRed:0.31 green:0.31 blue:0.31 alpha:0.8],
+                  [UIColor colorWithRed:0.36 green:0.36 blue:0.36 alpha:0.8],
+                  [UIColor colorWithRed:0.42 green:0.42 blue:0.42 alpha:0.8], // 6
+                  [UIColor colorWithRed:0.47 green:0.47 blue:0.47 alpha:0.8],
+                  [UIColor colorWithRed:0.53 green:0.53 blue:0.53 alpha:0.8],
+                  [UIColor colorWithRed:0.58 green:0.58 blue:0.58 alpha:0.8],
+                  [UIColor colorWithRed:0.64 green:0.64 blue:0.64 alpha:0.8],
+                  [UIColor colorWithRed:0.69 green:0.69 blue:0.69 alpha:0.8],
+                  [UIColor colorWithRed:0.75 green:0.75 blue:0.75 alpha:0.8], // 12
+                  [UIColor colorWithRed:0.80 green:0.80 blue:0.80 alpha:0.8],
+                  [UIColor colorWithRed:0.86 green:0.86 blue:0.86 alpha:0.8],
+                  [UIColor colorWithRed:0.80 green:0.80 blue:0.80 alpha:0.8],
+                  [UIColor colorWithRed:0.75 green:0.75 blue:0.75 alpha:0.8],
+                  [UIColor colorWithRed:0.69 green:0.69 blue:0.69 alpha:0.8],
+                  [UIColor colorWithRed:0.64 green:0.64 blue:0.64 alpha:0.8], // 18
+                  [UIColor colorWithRed:0.58 green:0.58 blue:0.58 alpha:0.8],
+                  [UIColor colorWithRed:0.53 green:0.53 blue:0.53 alpha:0.8],
+                  [UIColor colorWithRed:0.47 green:0.47 blue:0.47 alpha:0.8],
+                  [UIColor colorWithRed:0.42 green:0.42 blue:0.42 alpha:0.8],
+                  [UIColor colorWithRed:0.36 green:0.36 blue:0.36 alpha:0.8], // 23
+                  nil];
+      [s_colors retain];
+   }
+   return s_colors;
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
    if ((self = [super initWithFrame:frame])) {
@@ -27,7 +63,7 @@
    CGRect ellipseRect = CGRectMake(rect.origin.x+5, rect.origin.y+5, rect.size.width-10, rect.size.height-10);
    CGContextSetRGBStrokeColor(context, 0.3, 0.3, 0.3, 1.0);
    CGContextSetLineWidth(context, 4.5f);
-   CGContextSetRGBFillColor(context, 0.9, 0.9, 0.9, 1.0);
+   CGContextSetFillColorWithColor(context, [[[UICClockView colors] objectAtIndex:hour] CGColor]);
    CGContextAddEllipseInRect(context, ellipseRect);
    CGContextFillPath(context);
    CGContextAddEllipseInRect(context, ellipseRect);
@@ -36,6 +72,10 @@
    CGPoint ellipseCenter = {rect.origin.x + rect.size.width/2, rect.origin.y + rect.size.height/2};
    CGFloat minuteHand = rect.size.height * 0.4;
    CGFloat hourHand = rect.size.height * 0.25;
+
+   CGColorRef circleColor = [[[UICClockView colors] objectAtIndex:hour] CGColor];
+   const CGFloat *colorComponents = CGColorGetComponents(circleColor);
+   CGContextSetRGBStrokeColor(context, 1.0 - colorComponents[0] + 0.25, 1.0 - colorComponents[1] + 0.1, 1.0 - colorComponents[2] + 0.1, colorComponents[3]);
 
    // minuteHand
    CGContextSetLineWidth(context, 3.0f);
